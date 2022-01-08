@@ -21,8 +21,7 @@ const UserTemplate = () => {
 
     return (
         <div>
-            <div className="container mt-4">
-                <div className="mx-auto shadow post">
+                <div className="mx-auto shadow post mt-4">
                     <div className="row g-0 userInfo">
                         <div className="col-md-2">
                             <img className='user-img d-block mx-auto' src="https://mauigoddessproject.files.wordpress.com/2016/12/sienna-99-of-140.jpg?w=667" />
@@ -39,10 +38,10 @@ const UserTemplate = () => {
                         <button className='btn' onClick={() => onUpdate('likes')}> Like</button>
                         <button className='btn' onClick={() => onUpdate('shares')}> Share</button>
                         <button className='btn' > Comment</button>
-                       
+                        <button className='btn'> show comments </button>
                     </div>
                 </div>
-            </div>
+            
         </div>
     )
 }

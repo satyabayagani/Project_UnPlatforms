@@ -35,8 +35,20 @@ router.put('/update',(req, res)=>{
         }
     }
     )
-    .then(data => res.send("Likes updated"))
+    .then(res=>console.log("update succeded"))
     .catch(err=>console.log(err))
+
+router.post('/addComments',(req, res)=>{
+    db.comment.create({
+        comments:req.body.comments
+    })
+    .then(res=>res.send("Comment posted succeded"))
+    .catch(err=>res.send({message:"error in posting comment",err}))
+
 })
+
+})
+
+
 
 module.exports = router;

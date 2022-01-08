@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { action } from './store/redux';
 import axios from 'axios';
+import ShowComments from './components/showComments';
 
 
 function App() {
@@ -31,7 +32,10 @@ function App() {
 
   return (
     <div>
+      <div className="container">
       <UserTemplate></UserTemplate>
+      <ShowComments></ShowComments>
+      </div>
     </div>
   );
 }
