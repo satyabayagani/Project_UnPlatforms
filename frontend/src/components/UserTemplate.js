@@ -1,12 +1,13 @@
 import { useSelector,useDispatch } from 'react-redux';
 import axios from 'axios';
 import './UserTemplate.css'
-import { action } from '../store/redux';
+import { action, commentAction } from '../store/redux';
+import { useState } from 'react';
 
 const UserTemplate = () => {
     const dispatch = useDispatch();
     const data = useSelector(state => state.dataslice.initial[0]);
-
+    const [show, hide]=useState(false)
     const onUpdate = (attr) => {
         let updateData = { ...data };
         if (attr === 'likes')
@@ -14,11 +15,13 @@ const UserTemplate = () => {
         if (attr === 'shares')
             updateData.shares = updateData.shares + 1;
         axios.put("http://localhost:3200/api/update", updateData)
-            .then(res => { dispatch(action.getData([updateData])) })
-            .catch(err => console.log("error in updating likes", err))
+            .then(res => { dispatch(action.getData([updateData]))})
+            .catch(err => console.log(`error in updating ${attr}`, err))
     }
 
-
+    const showCommentBox=()=>{dispatch(commentAction.showOrHideBox())}
+    const showComments=()=>{hide(!show)
+        dispatch(commentAction.showOrHideComments())}
     return (
         <div>
                 <div className="mx-auto shadow post mt-4">
@@ -37,8 +40,8 @@ const UserTemplate = () => {
                     <div className='btn-group'>
                         <button className='btn' onClick={() => onUpdate('likes')}> Like</button>
                         <button className='btn' onClick={() => onUpdate('shares')}> Share</button>
-                        <button className='btn' >Add Comment</button>
-                        <button className='btn'> show comments </button>
+                        <button className='btn' onClick={showCommentBox}>Add Comment</button>
+                        <button className='btn' onClick={showComments}> {!show&& <p className='mb-0'>Show comments</p>}{show&& <p className='mb-0'>Hide comments</p>}</button>
                     </div>
                 </div>
             

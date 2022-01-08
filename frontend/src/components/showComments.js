@@ -1,22 +1,14 @@
-import './showComments.css'
-import axios from 'axios'
-const ShowComments=()=>{
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { commentAction } from "../store/redux";
 
-   function addComment(event){
-       event.preventDefault()
-       axios.post("http://localhost:3200/api/addComments",{comments:event.target.txt.value})
-       .then(res=>console.log(res))
-       .catch(err=>console.log(err))
-       
-   }
-
+const ShowComments= ()=>{
+        const displaycomments=useSelector(state=>state.comment.initComments);
+         console.log(displaycomments)
     return(
-        <div className="mt-4 comment mx-auto">
-            <form onSubmit={addComment}>
-            <textarea name="txt" className="form-control w-75 d-block mx-auto"></textarea>
-            <button type='submit' className='btn btn-outline-primary mt-2 d-block mx-auto'>Post <i className="far fa-paper-plane"></i></button>
-            </form>
-            
+        <div>
+            {displaycomments.map((obj)=><p>{ obj.comments}</p>)}
         </div>
     )
 }

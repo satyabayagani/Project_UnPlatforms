@@ -37,6 +37,15 @@ router.put('/update',(req, res)=>{
     .then(data=>res.send("update success"))
     .catch(err=>console.log(err))
 
+    router.get('/getcomments', (req, res)=>{
+        db.comment.findAll()
+        .then(data =>{
+            console.log(data)
+             res.send(data)
+            })
+        .catch(err=>console.log(err))    
+    })
+
 router.post('/addComments',(req, res)=>{
     db.comment.create({
         comments:req.body.comments
