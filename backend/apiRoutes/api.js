@@ -33,9 +33,8 @@ router.put('/update',(req, res)=>{
         where:{
             id:req.body.id
         }
-    }
-    )
-    .then(res=>console.log("update succeded"))
+    })
+    .then(data=>res.send("update success"))
     .catch(err=>console.log(err))
 
 router.post('/addComments',(req, res)=>{

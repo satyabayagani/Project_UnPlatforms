@@ -37,7 +37,7 @@ const UserTemplate = () => {
                     <div className='btn-group'>
                         <button className='btn' onClick={() => onUpdate('likes')}> Like</button>
                         <button className='btn' onClick={() => onUpdate('shares')}> Share</button>
-                        <button className='btn' > Comment</button>
+                        <button className='btn' >Add Comment</button>
                         <button className='btn'> show comments </button>
                     </div>
                 </div>

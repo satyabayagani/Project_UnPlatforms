@@ -14,7 +14,7 @@ const ShowComments=()=>{
         <div className="mt-4 comment mx-auto">
             <form onSubmit={addComment}>
             <textarea name="txt" className="form-control w-75 d-block mx-auto"></textarea>
-            <button type='submit' className='btn btn-warning mt-2 d-block mx-auto'>Add Comment</button>
+            <button type='submit' className='btn btn-outline-primary mt-2 d-block mx-auto'>Post <i className="far fa-paper-plane"></i></button>
             </form>
             
         </div>
