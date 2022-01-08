@@ -1,0 +1,16 @@
+#userName{
+    font-size: large;
+    font-weight:550;    
+}
+
+.user-img{
+    width: 65px;
+    border-radius:50%;
+}
+
+.post{
+    max-width:780px;
+    padding: 30px;
+}
+
+
