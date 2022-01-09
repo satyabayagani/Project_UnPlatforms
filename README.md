@@ -7,8 +7,8 @@ Unzipped file contains a folder named  Project_UnPlatforms-master and in that tw
 
 ### Installing Dependencies:
 Now to Install dependencies in both frontend and backend folder to run our react-app
-- Change the working directory to frontend in IDE and run `npm install`
-- Change the working directory to backend in IDE and run `npm install`
+- Change the working directory to frontend in IDE terminal or command prompt and run `npm install`
+- Change the working directory to backend in IDE terminal or command prompt and run `npm install`
 
 # Configurations:
 #### Configuring sequelize:
@@ -46,3 +46,6 @@ To run the react-app
 #### Comments:
 The app features functioning comments
 
+![](Images/Before-comments.PNG)
+![](Images/adding-comment.PNG)
+![](Images/comment-posted.PNG)
