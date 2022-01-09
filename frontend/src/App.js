@@ -55,7 +55,7 @@ function App() {
 
   return (
     <div>
-      <div className="container">
+      <div>
         <UserTemplate></UserTemplate>
         {showbox && <PostComments></PostComments>}
         {showcomments && <ShowComments></ShowComments>}

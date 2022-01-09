@@ -3,6 +3,8 @@ import axios from 'axios';
 import './UserTemplate.css'
 import { action, commentAction } from '../store/redux';
 import { useState } from 'react';
+import userData from '../userData.json' 
+// frontend\public\userData.json D:\Project_UnPlatforms\frontend\public\userData.json
 
 const UserTemplate = () => {
     const dispatch = useDispatch();
@@ -33,24 +35,25 @@ const UserTemplate = () => {
     }
     return (
         <div>
-            <div className="mx-auto shadow post mt-4">
+            <div className="mx-auto post mt-4">
                 <div className="row g-0 userInfo">
                     <div className="col-md-2">
-                        <img className='user-img d-block mx-auto' src="https://mauigoddessproject.files.wordpress.com/2016/12/sienna-99-of-140.jpg?w=667" />
+                        <img className='user-img d-block mx-auto' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOxItRnDdjTdtG6aL0I93dDr22Ivka5vHdlg&usqp=CAU" />
                     </div>
                     <div className="col-md-10 text-muted">
-                        <p id='userName'>Beauty</p>
-                        <p>Alum | Finance,MBA | 2016 | Business Manager at Capgemini <br />1d | San Francisco</p>
+                        <p id='userName'>{userData[0].username}</p>
+                        <p > {userData[0].personalInfo} <br /> {userData[0].Added}</p>
                     </div>
                 </div>
-                <p className='text-muted'>The concept of Research : A cross-cultural study</p>
-                <p>Oxford Nanopore has pulled in $100m from investors in the Asia-Pacific region, as it completes a funding round that values the fast growing UK biotechnology company at$1.5bn.</p>
+                <p className='text-muted'>{userData[0].study}</p>
+                
+                <p>{userData[0].studyInfo}</p>
                 <p className='text-muted'>{data.views} Views | {data.likes}  Likes | {data.comments} Comments | {data.shares} Shares</p>
-                <div className='btn-group'>
-                    <button className='btn' onClick={() => onUpdate('likes')}> Like</button>
-                    <button className='btn' onClick={() => onUpdate('shares')}> Share</button>
-                    <button className='btn' onClick={showCommentBox}>Add Comment</button>
-                    <button className='btn' onClick={showComments}> {!show && <p className='mb-0'>Show comments</p>}{show && <p className='mb-0'>Hide comments</p>}</button>
+                <div className='d-flex flex-wrap'>
+                    <button className='like' onClick={() => onUpdate('likes')}><i className="far fa-thumbs-up"></i> Like</button>
+                    <button className='comment' onClick={showCommentBox}><i className="far fa-comment-alt"></i> Add Comment</button>
+                    <button className='showcomment' onClick={showComments}> {!show && <p className='mb-0'><i className="far fa-eye"></i> Show comments</p>}{show && <p className='mb-0'><i className="far fa-eye-slash"></i> Hide comments</p>}</button>
+                    <button className='share' onClick={() => onUpdate('shares')}><i className="fas fa-share"></i> Share</button>
                 </div>
             </div>
 

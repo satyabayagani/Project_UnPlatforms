@@ -4,13 +4,28 @@
 }
 
 .user-img{
-    width: 65px;
-    border-radius:50%;
+    width: 90px;
+    border-radius: 50%;
 }
 
 .post{
     max-width:780px;
     padding: 30px;
+    box-shadow: 0 2px 22px #0000004a;
+
 }
 
+button:not(#post){
+    border: none;
+    background-color: white;
+    margin: 1px;
+    border-radius: 5px;
+    padding: 10px;
+}
 
+button:hover:not(#post){
+    transition: 0.5s;
+    background-image: linear-gradient(45deg, #b95ce4, #4f29cd);
+    box-shadow:  rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px;;
+    color: white!important;
+}

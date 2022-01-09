@@ -26,7 +26,7 @@ const PostComments = () => {
         <div className="mt-4 comment mx-auto">
             <form onSubmit={addComment}>
                 <textarea name="txt" className="form-control w-75 d-block mx-auto" required></textarea>
-                <button type='submit' className='btn btn-primary mt-2 d-block mx-auto'>Post <i className="far fa-paper-plane"></i></button>
+                <button type='submit' className='btn-warning mt-2 d-block mx-auto submit' id='post'>Post <i className="far fa-paper-plane"></i></button>
             </form>
         </div>
     )
