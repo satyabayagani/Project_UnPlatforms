@@ -12,7 +12,9 @@ const PostComments = () => {
 
         //Posting a comment to database
         axios.post("http://localhost:3200/api/addComments", { comments: event.target.txt.value })
-            .then(res => dispatch(commentAction.addComment([{ comments: event.target.txt.value }])))
+            .then(res =>{ dispatch(commentAction.addComment([{ comments: event.target.txt.value }]))
+                          event.target.txt.value=''    
+            })
             .catch(err => console.log(err))
 
         //Updating count of comments in database
