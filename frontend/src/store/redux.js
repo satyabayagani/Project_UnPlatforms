@@ -2,6 +2,8 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const initial = [{ views: 0, likes: 0, shares: 0, comments: 0 }]
 let initComments = []
+
+//dataSlice which stores the count of data (likes, shares, comments)
 const dataSlice = createSlice({
     name: 'dataslice',
     initialState: { initial },
@@ -12,6 +14,7 @@ const dataSlice = createSlice({
     }
 })
 
+//commentSlice which stores the comments posted
 const commentSlice = createSlice({
     name: 'comment',
     initialState: { initComments, showbox: false, showcomments: false },
@@ -28,7 +31,7 @@ const commentSlice = createSlice({
         }
     }
 })
-
+//creating store
 const store = configureStore({
     reducer: { dataslice: dataSlice.reducer, comment: commentSlice.reducer }
 })

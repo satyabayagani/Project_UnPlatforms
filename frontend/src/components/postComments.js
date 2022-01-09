@@ -14,12 +14,12 @@ const PostComments = () => {
         axios.post("http://localhost:3200/api/addComments", { comments: event.target.txt.value })
             .then(res => dispatch(commentAction.addComment([{ comments: event.target.txt.value }])))
             .catch(err => console.log(err))
-        console.log(commentcount)
 
         //Updating count of comments in database
         axios.put("http://localhost:3200/api/updateComment", { id: commentcount.id, comments: commentcount.comments })
             .then(res => dispatch(action.getData([commentcount])))
             .catch(err => console.log(err))
+        event.target.txt.value=''
     }
 
     return (

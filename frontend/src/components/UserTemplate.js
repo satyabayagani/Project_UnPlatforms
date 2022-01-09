@@ -38,7 +38,7 @@ const UserTemplate = () => {
             <div className="mx-auto post mt-4">
                 <div className="row g-0 userInfo">
                     <div className="col-md-2">
-                        <img className='user-img d-block mx-auto' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOxItRnDdjTdtG6aL0I93dDr22Ivka5vHdlg&usqp=CAU" />
+                        <img className='user-img d-block mx-auto shadow' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOxItRnDdjTdtG6aL0I93dDr22Ivka5vHdlg&usqp=CAU" alt='Photo Unavailabe'/>
                     </div>
                     <div className="col-md-10 text-muted">
                         <p id='userName'>{userData[0].username}</p>

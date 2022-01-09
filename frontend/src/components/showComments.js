@@ -3,7 +3,7 @@ import './showComents.css'
 
 const ShowComments= ()=>{
         const displaycomments=useSelector(state=>state.comment.initComments);
-         console.log(displaycomments)
+        //empty named variable to toggle the show and hide behaviour for comments
         let empty=false;
         if(displaycomments.length!==0)
             empty=true
