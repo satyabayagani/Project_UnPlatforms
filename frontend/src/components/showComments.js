@@ -1,14 +1,17 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { commentAction } from "../store/redux";
+import { useSelector } from "react-redux";
 
 const ShowComments= ()=>{
         const displaycomments=useSelector(state=>state.comment.initComments);
          console.log(displaycomments)
+        let empty=false;
+        if(displaycomments.length!==0)
+            empty=true
     return(
         <div>
-            {displaycomments.map((obj)=><p>{ obj.comments}</p>)}
+            <div>
+            {!empty && <p>No Comments</p>}
+            {empty && displaycomments.map((obj)=><p>{ obj.comments}</p>)}
+            </div>
         </div>
     )
 }
