@@ -10,13 +10,18 @@ const UserTemplate = () => {
     const [show, hide]=useState(false)
     const onUpdate = (attr) => {
         let updateData = { ...data };
-        if (attr === 'likes')
+        if (attr === 'likes'){
             updateData.likes = updateData.likes + 1;
-        if (attr === 'shares')
-            updateData.shares = updateData.shares + 1;
-        axios.put("http://localhost:3200/api/update", updateData)
+            axios.put(`http://localhost:3200/api/updatelikes`, {likes:updateData.likes,id:updateData.id})
             .then(res => { dispatch(action.getData([updateData]))})
             .catch(err => console.log(`error in updating ${attr}`, err))
+        }
+        if (attr === 'shares'){
+            updateData.shares = updateData.shares + 1;
+        axios.put(`http://localhost:3200/api/updateshares`, {shares:updateData.shares,id:updateData.id})
+            .then(res => { dispatch(action.getData([updateData]))})
+            .catch(err => console.log(`error in updating ${attr}`, err))
+        }
     }
 
     const showCommentBox=()=>{dispatch(commentAction.showOrHideBox())}

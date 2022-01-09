@@ -13,36 +13,49 @@ function App() {
   const showbox = useSelector(state => state.comment.showbox)
   const showcomments = useSelector(state => state.comment.showcomments)
 
-  useEffect(()=>{
+  useEffect(() => {
     axios.get("http://localhost:3200/api/all")
       .then(res => {
         if (res.data.length === 0) {
           axios.post("http://localhost:3200/api/create")
-          .then(res => dispatch(action.getData(res.data)))
-          .catch(err => console.log("error in initialising data",err))
-        }
-        else
-          {
-            dispatch(action.getData(res.data))}
-          if(res.data.comments!=0)
-        axios.put("http://localhost:3200/api/update",
-          {views:res.data[0].views+1,id:res.data[0].id})
-        })
-      .catch(err => console.log("error in loading data",err))
+            .then(resp => {
+              console.log(resp.data)
+              dispatch(action.getData([resp.data]))
 
-      axios.get("http://localhost:3200/api/getcomments")
-        .then(res=>{
-          dispatch(commentAction.addComment(res.data.reverse()))})
-        .catch(err=>console.log("error in retrieving comments",err))
-  },[dispatch])
+              axios.put("http://localhost:3200/api/updateView", { views: resp.data.views + 1, id: resp.data.id })
+                .then(res => console.log("Views updated successfully"))
+                .catch(err => console.log("error in updating views", err))
+            }
+            )
+            .catch(err => console.log("error in initialising data", err))
+        }
+        else {
+          dispatch(action.getData(res.data))
+          axios.put("http://localhost:3200/api/update", { views: res.data[0].views + 1, id: res.data[0].id })
+            .then(res => console.log("Views updated successfully"))
+            .catch(err => console.log("error in updating views", err))
+        }
+
+
+        axios.get("http://localhost:3200/api/getcomments")
+          .then(res => {
+            dispatch(commentAction.addComment(res.data.reverse()))
+          })
+          .catch(err => console.log("error in retrieving comments", err))
+
+      })
+      .catch(err => console.log("error in loading data", err))
+
+
+  }, [dispatch])
 
 
   return (
     <div>
       <div className="container">
-      <UserTemplate></UserTemplate>
-      {showbox && <PostComments></PostComments>}
-      { showcomments && <ShowComments></ShowComments>}
+        <UserTemplate></UserTemplate>
+        {showbox && <PostComments></PostComments>}
+        {showcomments && <ShowComments></ShowComments>}
       </div>
     </div>
   );
