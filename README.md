@@ -46,3 +46,6 @@ To run the react-app
 #### Comments:
 The app features functioning comments
 
+![](Images/Before-comments.PNG)
+![](Images/adding-comment.PNG)
+![](Images/comment-posted.PNG)
